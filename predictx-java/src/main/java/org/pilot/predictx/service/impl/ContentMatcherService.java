@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pilot.predictx.dto.ContentMatcherRequest;
 import org.pilot.predictx.service.IContentMatcherService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,6 +23,10 @@ public class ContentMatcherService implements IContentMatcherService {
 
     private static String apply(final List<CharacterFrequency> letterFrequency) {
         final StringBuilder response = new StringBuilder();
+
+        if(CollectionUtils.isEmpty(letterFrequency)) {
+            return response.append("No Result").toString();
+        }
 
         letterFrequency.forEach(entry -> {
             response.append(entry.getBucket());
