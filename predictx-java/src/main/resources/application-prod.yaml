@@ -1,2 +1,6 @@
 server:
   port: 9004
+
+logging:
+  level:
+    org.pilot.predictx.ContentAnalyzerApp: INFO

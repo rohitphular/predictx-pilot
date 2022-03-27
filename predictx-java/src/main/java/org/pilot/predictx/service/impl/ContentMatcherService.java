@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.pilot.predictx.dto.ContentMatcherRequest;
 import org.pilot.predictx.service.IContentMatcherService;
@@ -13,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class ContentMatcherService implements IContentMatcherService {
 
@@ -20,17 +22,20 @@ public class ContentMatcherService implements IContentMatcherService {
     public String process(final ContentMatcherRequest contentMatcherRequest) {
         final String input1 = Objects.isNull(contentMatcherRequest.getInput1()) ? "" : contentMatcherRequest.getInput1();
         final String input2 = Objects.isNull(contentMatcherRequest.getInput2()) ? "" : contentMatcherRequest.getInput2();
+        log.debug("Request received for processing '{}' and '{}'", input1, input2);
 
         return apply(computeFrequency(input1, input2));
     }
 
     private static String apply(final List<CharacterFrequency> letterFrequency) {
+        log.info("Algorithm has computed data for {} valid characters", letterFrequency.size());
         final StringBuilder response = new StringBuilder();
 
         if(CollectionUtils.isEmpty(letterFrequency)) {
             return response.append("No Result").toString();
         }
 
+        log.info("Constructing response for data collected by algorithm");
         letterFrequency.forEach(entry -> {
             response.append(entry.getBucket());
             response.append(StringUtils.repeat(entry.getLetter(), entry.getCount().intValue()));
@@ -41,9 +46,9 @@ public class ContentMatcherService implements IContentMatcherService {
     }
 
     private static List<CharacterFrequency> computeFrequency(final String input1, final String input2) {
-
         final List<CharacterFrequency> letterFrequency = new ArrayList<>();
 
+        log.info("Filtering character from input to retain [a-z]");
         final String filteredInput1 = input1.replaceAll("[^a-z]", "");
         final String filteredInput2 = input2.replaceAll("[^a-z]", "");
 
@@ -52,9 +57,13 @@ public class ContentMatcherService implements IContentMatcherService {
                 .mapToObj(e -> (char) e)
                 .collect(Collectors.toCollection(HashSet::new));
 
+        log.info("There are {} characters to scan for processing algorithm", charsSet.size());
+
         charsSet.forEach(character -> {
             long charCountInS1 = input1.chars().filter(ch -> ch == character).count();
             long charCountInS2 = input2.chars().filter(ch -> ch == character).count();
+
+            log.info("Count of '{}' in input-1 is {} and input-2 is {}", character, charCountInS1, charCountInS2);
 
             if(charCountInS1 > 1 || charCountInS2 > 1) {
                 final CharacterFrequency.CharacterFrequencyBuilder entryBuilder = CharacterFrequency.builder();

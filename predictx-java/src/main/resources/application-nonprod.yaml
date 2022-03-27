@@ -1,2 +1,6 @@
 server:
   port: 8004
+
+logging:
+  level:
+    org.pilot.predictx.ContentAnalyzerApp: DEBUG

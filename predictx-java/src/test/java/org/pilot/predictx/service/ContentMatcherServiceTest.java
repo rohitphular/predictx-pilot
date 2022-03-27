@@ -108,6 +108,19 @@ public class ContentMatcherServiceTest {
     }
 
     @Test
+    public void givenProcess_whenBothInputAreSplChar_thenNoResultOutput() {
+        ContentMatcherRequest contentMatcherRequest = ContentMatcherRequest.builder()
+                .input1("$#%34534#$")
+                .input2("657534#$%$#%#")
+                .build();
+
+        final String expected = "No Result";
+        final String result = contentMatcherService.process(contentMatcherRequest);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
     public void givenProcess_whenOneInputIsEmpty_thenNoResultOutput() {
         ContentMatcherRequest contentMatcherRequest = ContentMatcherRequest.builder()
                 .input2("some content")
