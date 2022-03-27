@@ -18,7 +18,7 @@ http://localhost:7004/api/predictx/swagger-ui/index.html
 
 ## Running JUnit & Integration test
 
-Use package test of maven. Both are combined in different execution.
+Use test goal of maven. Both are combined in different execution.
 More info inside pom.xml
 
 ```bash
