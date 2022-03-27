@@ -2,6 +2,7 @@ package org.pilot.predictx.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.pilot.predictx.ContentAnalyzerApp;
 import org.pilot.predictx.dto.ApiResponse;
 import org.pilot.predictx.dto.ContentMatcherRequest;
@@ -12,18 +13,20 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {ContentAnalyzerApp.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ContentMatcherResourceIT {
 
     @LocalServerPort
     private int port;
 
-    TestRestTemplate restTemplate = new TestRestTemplate();
-    HttpHeaders headers = new HttpHeaders();
+    private final TestRestTemplate restTemplate = new TestRestTemplate();
+    private final HttpHeaders headers = new HttpHeaders();
 
     @Test
     public void whenBothInputsAreValid_thenExpect200ResponseAndOutput() {
