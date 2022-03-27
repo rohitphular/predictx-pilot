@@ -34,4 +34,4 @@ spec:
       port: 9004
       targetPort: 9004
   type: NodePort
-  # Need to change this to ClusterIP if we have load balancer in front of all MS
+  # Need to change this to ClusterIP if we have api-gateway in front of service
