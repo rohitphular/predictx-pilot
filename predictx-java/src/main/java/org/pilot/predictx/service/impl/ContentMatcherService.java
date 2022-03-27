@@ -8,7 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.pilot.predictx.dto.ContentMatcherRequest;
 import org.pilot.predictx.service.IContentMatcherService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
