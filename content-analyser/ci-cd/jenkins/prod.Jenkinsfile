@@ -51,7 +51,7 @@ pipeline {
         stage("Package & Build docker image") {
             steps {
                 dir("$APP_ROOT_PATH") {
-                    sh "mvn package"
+                    sh "mvn package -Dmaven.test.skip"
                 }
             }
         }
