@@ -9,7 +9,6 @@ import java.util.List;
  * other custom and complex validation
  * e.g. during file or content parsing
  */
-@SuppressWarnings("serial")
 public class ValidationException extends BusinessException {
 
     private List<ValidationMessage> validationMessages;

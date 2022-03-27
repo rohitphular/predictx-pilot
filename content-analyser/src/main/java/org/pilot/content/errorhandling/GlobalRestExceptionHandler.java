@@ -20,15 +20,6 @@ public class GlobalRestExceptionHandler {
 
     private static final String FALLBACK_ERROR_MSG = "Oops! Something went wrong";
 
-    // GENERAL ERROR HANDLING
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleErrors(final Exception ex) {
-        log.error("Unknown error received", ex);
-        /* Fallback to server error */
-        final String errorMessage = StringUtils.hasText(ex.getMessage()) ? ex.getMessage() : FALLBACK_ERROR_MSG;
-        return new ResponseEntity<>(new WrapperErrorMessage(errorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
     // VALIDATION ERROR HANDLING
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleValidationError(final MethodArgumentNotValidException ex) {
@@ -54,6 +45,15 @@ public class GlobalRestExceptionHandler {
         }
 
         return new ResponseEntity<>(ex.getValidationMessages(), HttpStatus.BAD_REQUEST);
+    }
+
+    // GENERAL ERROR HANDLING
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> handleErrors(final Exception ex) {
+        log.error("Unknown error received", ex);
+        /* Fallback to server error */
+        final String errorMessage = StringUtils.hasText(ex.getMessage()) ? ex.getMessage() : FALLBACK_ERROR_MSG;
+        return new ResponseEntity<>(new WrapperErrorMessage(errorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

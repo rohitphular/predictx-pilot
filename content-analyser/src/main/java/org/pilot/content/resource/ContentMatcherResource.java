@@ -24,7 +24,8 @@ public class ContentMatcherResource {
     private final IContentMatcherService iContentMatcherService;
 
     @PostMapping("/content-matcher")
-    public ResponseEntity<ApiResponse<String>> process(@RequestBody @Valid ContentMatcherRequest contentMatcherRequest) {
+    public ResponseEntity<ApiResponse<String>> contentMatcher(
+            @RequestBody @Valid ContentMatcherRequest contentMatcherRequest) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 

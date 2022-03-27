@@ -63,7 +63,7 @@ pipeline {
             }
         }
 
-        // Image is created with fabric8 plugin inside pom.xml. It will use application name as image name
+        // Image is created with fabric8 plugin inside pom.xml. It will use application name as image name with latest tag
         // Image is created with "APP_NAME" and later tagged with "IMAGE_NAME" so it can be pushed to ECR
         stage("Tag Image") {
             steps {
@@ -78,7 +78,7 @@ pipeline {
             }
         }
 
-        // Assuming we have KOPS on-premise or cloud || EKS on AWS cloud
+        // Assuming we have KOPS on on-premise or cloud || EKS on AWS cloud
         stage("Deploy to cluster") {
             steps {
                 script {

@@ -25,7 +25,7 @@ public class ContentMatcherResourceIT {
     @LocalServerPort
     private int port;
 
-    private final TestRestTemplate restTemplate = new TestRestTemplate();
+    private final TestRestTemplate testRestTemplate = new TestRestTemplate();
     private final HttpHeaders headers = new HttpHeaders();
 
     @Test
@@ -37,7 +37,7 @@ public class ContentMatcherResourceIT {
 
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
+        ResponseEntity<String> response = testRestTemplate.exchange(
                 createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
@@ -54,7 +54,7 @@ public class ContentMatcherResourceIT {
 
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
+        ResponseEntity<String> response = testRestTemplate.exchange(
                 createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
@@ -70,7 +70,7 @@ public class ContentMatcherResourceIT {
 
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
+        ResponseEntity<String> response = testRestTemplate.exchange(
                 createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
@@ -86,7 +86,7 @@ public class ContentMatcherResourceIT {
 
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
+        ResponseEntity<String> response = testRestTemplate.exchange(
                 createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 

@@ -18,16 +18,20 @@ import java.util.stream.Collectors;
 @Service
 public class ContentMatcherService implements IContentMatcherService {
 
+    private static final String BUCKET_1 = "1:";
+    private static final String BUCKET_2 = "2:";
+    private static final String BUCKET_3 = "=:";
+
     @Override
     public String process(final ContentMatcherRequest contentMatcherRequest) {
         final String input1 = Objects.isNull(contentMatcherRequest.getInput1()) ? "" : contentMatcherRequest.getInput1();
         final String input2 = Objects.isNull(contentMatcherRequest.getInput2()) ? "" : contentMatcherRequest.getInput2();
         log.debug("Request received for processing '{}' and '{}'", input1, input2);
 
-        return apply(computeFrequency(input1, input2));
+        return processOutput(computeFrequency(input1, input2));
     }
 
-    private static String apply(final List<CharacterFrequency> letterFrequency) {
+    private static String processOutput(final List<CharacterFrequency> letterFrequency) {
         log.info("Algorithm has computed data for {} valid characters", letterFrequency.size());
         final StringBuilder response = new StringBuilder();
 
@@ -69,11 +73,11 @@ public class ContentMatcherService implements IContentMatcherService {
                 final CharacterFrequency.CharacterFrequencyBuilder entryBuilder = CharacterFrequency.builder();
 
                 if(charCountInS1 > charCountInS2) {
-                    entryBuilder.weight(0.3).bucket("1:").count(charCountInS1).build();
+                    entryBuilder.weight(0.3).bucket(BUCKET_1).count(charCountInS1).build();
                 } else if(charCountInS1 < charCountInS2) {
-                    entryBuilder.weight(0.2).bucket("2:").count(charCountInS2).build();
+                    entryBuilder.weight(0.2).bucket(BUCKET_2).count(charCountInS2).build();
                 } else {
-                    entryBuilder.weight(0.1).bucket("=:").count(charCountInS1).build();
+                    entryBuilder.weight(0.1).bucket(BUCKET_3).count(charCountInS1).build();
                 }
 
                 entryBuilder.letter(character);

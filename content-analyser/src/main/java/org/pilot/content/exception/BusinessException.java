@@ -1,7 +1,7 @@
 package org.pilot.content.exception;
 
 /**
- * Common superclass for business exception in the application
+ * Common superclass for business exception
  */
 public class BusinessException extends Exception {
 
