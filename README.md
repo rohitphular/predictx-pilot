@@ -2,7 +2,7 @@
 
 APIs to process content
 
-## Installation
+## Running service locally
 
 Use spring profile to run locally
 
@@ -13,5 +13,22 @@ Use spring profile to run locally
 ## Swagger URL
 
 ```bash
-http://localhost:7004/api/content/swagger-ui/index.html
+http://localhost:7004/api/predictx/swagger-ui/index.html
+```
+
+## Running JUnit & Integration test
+
+Use package test of maven. Both are combined in different execution.
+More info inside pom.xml
+
+```bash
+mvn test
+```
+
+## Packaging
+
+Use package goal of maven to create artifact and docker image 
+
+```bash
+mvn package
 ```
