@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest()
 @Suite
-@SelectPackages({"org.pilot.predictx.integration"})
+@SelectPackages({"org.pilot.predictx.service"})
 class ContentAnalyzerAppTests {
 
 	@Test

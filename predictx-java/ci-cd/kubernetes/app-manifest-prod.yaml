@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${IMAGE_NAME}
+spec:
+  selector:
+    matchLabels:
+      app: ${IMAGE_NAME}
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ${IMAGE_NAME}
+    spec:
+      containers:
+        - name: ${IMAGE_NAME}
+          image: $ECR_HOST/$IMAGE_NAME:$IMAGE_TAG
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: ${IMAGE_NAME}
+
+spec:
+  selector:
+    app: ${IMAGE_NAME}
+  ports:
+    - name: http
+      port: 9004
+      targetPort: 9004
+  type: NodePort
+  # Need to change this to ClusterIP if we have load balancer in front of all MS
