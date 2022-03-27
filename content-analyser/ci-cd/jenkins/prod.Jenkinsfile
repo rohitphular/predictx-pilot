@@ -4,15 +4,15 @@ pipeline {
 
     environment {
         BUILD_ENV = "prod"
-        APP_NAME = "analysis-service"
-        APP_ROOT_PATH = "predictx-java"
+        APP_NAME = "content-analyser"
+        APP_ROOT_PATH = "content-analyser"
         IMAGE_NAME = "ms-$APP_NAME"
         IMAGE_TAG = "$BUILD_ENV-$BUILD_NUMBER"
 
         REMOTE_USER = "xxxxxxxx"
         REMOTE_HOST = "xx.xx.xx.xx"
         REMOTE_CERT = "$BUILD_ENV-xxxxxxxx"
-        ECR_HOST = "xxxxxxxx.dkr.ecr.xxxxxxxx.amazonaws.com"
+        ECR_HOST = "xxxxxxxx"
         ECR_REGION = "xxxxxxxx"
     }
 

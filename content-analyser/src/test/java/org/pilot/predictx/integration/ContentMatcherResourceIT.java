@@ -3,7 +3,7 @@ package org.pilot.predictx.integration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.pilot.predictx.ContentAnalyzerApp;
+import org.pilot.predictx.ContentAnalyserApp;
 import org.pilot.predictx.dto.ApiResponse;
 import org.pilot.predictx.dto.ContentMatcherRequest;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = {ContentAnalyzerApp.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {ContentAnalyserApp.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ContentMatcherResourceIT {
 
     @LocalServerPort

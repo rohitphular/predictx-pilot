@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>org.pilot.predictx</groupId>
-	<artifactId>content-analyzer</artifactId>
+	<artifactId>content-analyser</artifactId>
 	<version>1.0</version>
-	<name>content-analyzer</name>
+	<name>content-analyser</name>
 	<description>Pilot project</description>
 
 	<properties>

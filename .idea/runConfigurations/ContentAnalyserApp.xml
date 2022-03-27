@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ContentAnalyzerApp" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="org.pilot.predictx.ContentAnalyzerApp" />
-    <module name="content-analyzer" />
+  <configuration default="false" name="ContentAnalyserApp" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="org.pilot.predictx.ContentAnalyserApp" />
+    <module name="content-analyser" />
     <option name="VM_PARAMETERS" value="-Dspring.profiles.active=local" />
     <extension name="coverage">
       <pattern>
