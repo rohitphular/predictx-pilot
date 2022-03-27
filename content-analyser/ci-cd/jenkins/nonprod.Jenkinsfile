@@ -48,10 +48,11 @@ pipeline {
         }
 
         // fabric8 maven plugin is integrated with package goal of maven to create docker image
+        // Ignoring tests as it is implicit to package and is covered above
         stage("Package & Build docker image") {
             steps {
                 dir("$APP_ROOT_PATH") {
-                    sh "mvn package"
+                    sh "mvn -Dmaven.test.skip=true package"
                 }
             }
         }
@@ -64,7 +65,6 @@ pipeline {
         }
 
         // Image is created with fabric8 plugin inside pom.xml. It will use application name as image name with latest tag
-        // Image is created with "APP_NAME" and later tagged with "IMAGE_NAME" so it can be pushed to ECR
         stage("Tag Image") {
             steps {
                 sh "echo $BUILD_NUMBER"
