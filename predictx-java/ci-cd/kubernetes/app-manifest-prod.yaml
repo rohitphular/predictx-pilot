@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ${IMAGE_NAME}
-          image: $ECR_HOST/$IMAGE_NAME:$IMAGE_TAG
+          image: ${ECR_HOST}/${IMAGE_NAME}:${IMAGE_TAG}
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
