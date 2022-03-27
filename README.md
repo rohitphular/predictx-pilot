@@ -13,5 +13,5 @@ Use spring profile to run locally
 ## Swagger URL
 
 ```bash
-http://localhost:7004/api/predictx/swagger-ui/index.html
+http://localhost:7004/api/content/swagger-ui/index.html
 ```

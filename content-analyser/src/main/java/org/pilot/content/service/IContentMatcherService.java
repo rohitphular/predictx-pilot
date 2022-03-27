@@ -1,6 +1,6 @@
-package org.pilot.predictx.service;
+package org.pilot.content.service;
 
-import org.pilot.predictx.dto.ContentMatcherRequest;
+import org.pilot.content.dto.ContentMatcherRequest;
 
 public interface IContentMatcherService {
 

@@ -1,11 +1,11 @@
-package org.pilot.predictx.service;
+package org.pilot.content.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.pilot.predictx.dto.ContentMatcherRequest;
-import org.pilot.predictx.service.impl.ContentMatcherService;
+import org.pilot.content.dto.ContentMatcherRequest;
+import org.pilot.content.service.impl.ContentMatcherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

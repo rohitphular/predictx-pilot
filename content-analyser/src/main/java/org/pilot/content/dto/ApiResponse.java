@@ -1,4 +1,4 @@
-package org.pilot.predictx.dto;
+package org.pilot.content.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

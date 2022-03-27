@@ -1,4 +1,4 @@
-package org.pilot.predictx.config;
+package org.pilot.content.config;
 
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
@@ -32,14 +32,14 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.pilot.predictx.resource"))
+                .apis(RequestHandlerSelectors.basePackage("org.pilot.content.resource"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("Content Analyzer APIs","APIs for analyzing content using different algorithm",
+        return new ApiInfo("Content Analyser","APIs for analyzing content using different algorithm",
                 "API 0.0.1","Terms of service",null,null, null,
                 Collections.emptyList());
     }

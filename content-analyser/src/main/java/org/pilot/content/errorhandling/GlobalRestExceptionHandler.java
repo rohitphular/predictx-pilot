@@ -1,7 +1,7 @@
-package org.pilot.predictx.errorhandling;
+package org.pilot.content.errorhandling;
 
 import lombok.extern.slf4j.Slf4j;
-import org.pilot.predictx.exception.ValidationException;
+import org.pilot.content.exception.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;

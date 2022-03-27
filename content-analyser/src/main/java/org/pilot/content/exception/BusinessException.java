@@ -1,4 +1,4 @@
-package org.pilot.predictx.exception;
+package org.pilot.content.exception;
 
 /**
  * Common superclass for business exception in the application

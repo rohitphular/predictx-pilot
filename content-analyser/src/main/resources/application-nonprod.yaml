@@ -3,4 +3,4 @@ server:
 
 logging:
   level:
-    org.pilot.predictx.ContentAnalyzerApp: DEBUG
+    org.pilot.content.ContentAnalyserApp: DEBUG

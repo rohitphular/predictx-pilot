@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ContentAnalyserApp" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="org.pilot.predictx.ContentAnalyserApp" />
+    <option name="MAIN_CLASS_NAME" value="org.pilot.content.ContentAnalyserApp" />
     <module name="content-analyser" />
     <option name="VM_PARAMETERS" value="-Dspring.profiles.active=local" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="org.pilot.predictx.*" />
+        <option name="PATTERN" value="org.pilot.content.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

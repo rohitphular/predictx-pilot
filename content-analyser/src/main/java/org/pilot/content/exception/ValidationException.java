@@ -1,6 +1,6 @@
-package org.pilot.predictx.exception;
+package org.pilot.content.exception;
 
-import org.pilot.predictx.errorhandling.ValidationMessage;
+import org.pilot.content.errorhandling.ValidationMessage;
 
 import java.util.List;
 

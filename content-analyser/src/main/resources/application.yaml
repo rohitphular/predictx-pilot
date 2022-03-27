@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /api/predictx
+    context-path: /api/content
 
 # below config is workaround to make swagger run on latest spring boot v2.6.5
 # https://github.com/springfox/springfox/issues/3462

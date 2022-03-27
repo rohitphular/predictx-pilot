@@ -1,10 +1,10 @@
-package org.pilot.predictx.resource;
+package org.pilot.content.resource;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.pilot.predictx.dto.ContentMatcherRequest;
-import org.pilot.predictx.dto.ApiResponse;
-import org.pilot.predictx.service.IContentMatcherService;
+import org.pilot.content.dto.ContentMatcherRequest;
+import org.pilot.content.dto.ApiResponse;
+import org.pilot.content.service.IContentMatcherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;

@@ -1,4 +1,4 @@
-package org.pilot.predictx.service.impl;
+package org.pilot.content.service.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.pilot.predictx.dto.ContentMatcherRequest;
-import org.pilot.predictx.service.IContentMatcherService;
+import org.pilot.content.dto.ContentMatcherRequest;
+import org.pilot.content.service.IContentMatcherService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 

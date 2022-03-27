@@ -1,4 +1,4 @@
-package org.pilot.predictx.errorhandling;
+package org.pilot.content.errorhandling;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +10,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @ToString
-public class WrapperErrorMessage {
+public class ValidationMessage {
 
+    private String entity;
     private String message;
 
 }

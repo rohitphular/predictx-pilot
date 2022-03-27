@@ -1,11 +1,11 @@
-package org.pilot.predictx.integration;
+package org.pilot.content.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.pilot.predictx.ContentAnalyserApp;
-import org.pilot.predictx.dto.ApiResponse;
-import org.pilot.predictx.dto.ContentMatcherRequest;
+import org.pilot.content.ContentAnalyserApp;
+import org.pilot.content.dto.ApiResponse;
+import org.pilot.content.dto.ContentMatcherRequest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -38,7 +38,7 @@ public class ContentMatcherResourceIT {
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/api/predictx/algorithm/content-matcher"),
+                createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
         final String resultExpected = "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh";
@@ -55,7 +55,7 @@ public class ContentMatcherResourceIT {
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/api/predictx/algorithm/content-matcher"),
+                createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(400, response.getStatusCodeValue());
@@ -71,7 +71,7 @@ public class ContentMatcherResourceIT {
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/api/predictx/algorithm/content-matcher"),
+                createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(400, response.getStatusCodeValue());
@@ -87,7 +87,7 @@ public class ContentMatcherResourceIT {
         HttpEntity<ContentMatcherRequest> entity = new HttpEntity<>(request, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/api/predictx/algorithm/content-matcher"),
+                createURLWithPort("/api/content/algorithm/content-matcher"),
                 HttpMethod.POST, entity, String.class);
 
         assertEquals(400, response.getStatusCodeValue());
