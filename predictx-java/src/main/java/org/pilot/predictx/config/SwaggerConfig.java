@@ -39,7 +39,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("Content Analyzer API","APIs for analyzing content using different algorithm",
+        return new ApiInfo("Content Analyzer APIs","APIs for analyzing content using different algorithm",
                 "API 0.0.1","Terms of service",null,null, null,
                 Collections.emptyList());
     }

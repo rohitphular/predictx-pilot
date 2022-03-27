@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.pilot.predictx.dto.ContentMatcherRequest;
 import org.pilot.predictx.service.IContentMatcherService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -18,7 +19,10 @@ public class ContentMatcherService implements IContentMatcherService {
 
     @Override
     public String process(final ContentMatcherRequest contentMatcherRequest) {
-        return apply(computeFrequency(contentMatcherRequest.getInput1(), contentMatcherRequest.getInput2()));
+        final String input1 = Objects.isNull(contentMatcherRequest.getInput1()) ? "" : contentMatcherRequest.getInput1();
+        final String input2 = Objects.isNull(contentMatcherRequest.getInput2()) ? "" : contentMatcherRequest.getInput2();
+
+        return apply(computeFrequency(input1, input2));
     }
 
     private static String apply(final List<CharacterFrequency> letterFrequency) {
